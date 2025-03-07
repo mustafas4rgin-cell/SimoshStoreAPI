@@ -66,4 +66,22 @@ public class CategoryService : ICategoryService
         }
         return category;
     }
+    public async Task<BlogCategoryEntity> GetBlogCategoryByIdAsync(int id)
+    {
+        var blogCategory = await _Repository.GetByIdAsync<BlogCategoryEntity>(id);
+        if(blogCategory is null)
+        {
+            throw new NullReferenceException($"There is no blog category with id:{id} ");
+        }
+        return blogCategory;  
+    }
+    public async Task<IEnumerable<BlogCategoryEntity>> GetBlogCategories()
+    {
+        var blogCategories = await _Repository.GetAll<BlogCategoryEntity>().ToListAsync();
+        if(blogCategories.Count == 0)
+        {
+            throw new NullReferenceException("There is no blog category.");
+        }
+        return blogCategories;
+    }
 }

@@ -7,7 +7,6 @@ using SimoshStoreAPI;
 namespace MyApp.Namespace
 {
     [Route("api/[controller]")]
-    [Authorize(Roles = "admin")]
     [ApiController]
     public class OrderController : ControllerBase
     {

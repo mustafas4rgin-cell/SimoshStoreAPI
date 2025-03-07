@@ -8,7 +8,6 @@ namespace MyApp.Namespace
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "admin")]
     public class BlogCommentController : ControllerBase
     {
         private readonly ICommentService _commentService;

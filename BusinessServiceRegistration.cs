@@ -19,6 +19,7 @@ public static class BusinessServiceRegistration
         services.AddTransient<IRoleService, RoleService>();
         services.AddTransient<IOrderService, OrderService>();
         services.AddTransient<IContactFormService, ContactFormService>();
+        services.AddTransient<IBlogService, BlogService>();
 
         return services;
     }

@@ -8,7 +8,6 @@ namespace MyApp.Namespace
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "admin")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;

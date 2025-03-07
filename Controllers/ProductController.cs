@@ -10,7 +10,6 @@ namespace MyApp.Namespace
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "admin")]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
@@ -19,6 +18,7 @@ namespace MyApp.Namespace
         {
             _productService = productService;
         }
+        
         [HttpGet]
         public async Task<IActionResult> GetProducts()
         {
@@ -33,7 +33,7 @@ namespace MyApp.Namespace
             }
         }
 
-        
+        [Authorize(Roles="admin")]
         [HttpPost("create")]
         public async Task<IActionResult> CreateProduct([FromForm] ProductDTO product)
         {
@@ -44,7 +44,7 @@ namespace MyApp.Namespace
             }
             return Ok(product);
         }
-        
+        [Authorize(Roles="admin")]
         [HttpDelete("/product/delete/{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
@@ -55,6 +55,7 @@ namespace MyApp.Namespace
             }
             return Ok(result.Message);
         }
+        [Authorize(Roles="admin")]
         [HttpPut("/product/update/{id}")]
         public async Task<IActionResult> UpdateProduct([FromBody] ProductDTO product,[FromRoute] int id)
         {

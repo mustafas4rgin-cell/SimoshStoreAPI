@@ -10,4 +10,6 @@ public interface ICategoryService
     Task<IServiceResult> DeleteCategoryAsync(int id);
     Task<IServiceResult> UpdateCategoryAsync(CategoryDTO category, int id);
     public Task<CategoryEntity> GetCategoryByIdAsync(int id);
+    public Task<BlogCategoryEntity> GetBlogCategoryByIdAsync(int id);
+    public Task<IEnumerable<BlogCategoryEntity>> GetBlogCategories();
 }
